@@ -533,6 +533,41 @@ p {
   gap: 0.85rem;
 }
 
+.emphasis-disclosure {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  color: var(--ink);
+  background: #fff4d6;
+  border: 2px solid var(--ink);
+  box-shadow: var(--bevel-out);
+}
+
+.emphasis-disclosure:hover {
+  background: var(--highlight);
+}
+
+.emphasis-disclosure > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.emphasis-disclosure strong {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+}
+
+.emphasis-disclosure small {
+  font-size: 0.92rem;
+  color: #34485a;
+}
+
 .emphasis-panel-head {
   display: flex;
   align-items: flex-start;
@@ -544,6 +579,13 @@ p {
 .emphasis-panel-head h2 {
   font-size: clamp(1.2rem, 3vw, 1.45rem);
   margin-bottom: 0.35rem;
+}
+
+.emphasis-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  flex-wrap: wrap;
 }
 
 .emphasis-list {

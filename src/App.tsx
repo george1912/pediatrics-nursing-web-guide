@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ChapterPanel } from './components/ChapterPanel'
 import { EmphasisPanel } from './components/EmphasisPanel'
 import { FocusPanel } from './components/FocusPanel'
@@ -15,10 +15,31 @@ type Selection = {
   chapterTitle: string
 }
 
+const emphasisStorageKey = 'pediatrics-nursing-guide:emphasis'
+
+function loadSavedEmphasis(): Set<string> {
+  try {
+    const saved = JSON.parse(localStorage.getItem(emphasisStorageKey) ?? '[]')
+    const validIds = new Set(emphasisItems.map((item) => item.id))
+    return new Set(
+      Array.isArray(saved)
+        ? saved.filter((id): id is string => typeof id === 'string' && validIds.has(id))
+        : [],
+    )
+  } catch {
+    return new Set()
+  }
+}
+
 function App() {
   const [openChapterId, setOpenChapterId] = useState<string | null>(chapters[0]?.id ?? null)
   const [selection, setSelection] = useState<Selection | null>(null)
-  const [activeEmphasis, setActiveEmphasis] = useState<Set<string>>(() => new Set())
+  const [activeEmphasis, setActiveEmphasis] = useState<Set<string>>(loadSavedEmphasis)
+  const [emphasisOpen, setEmphasisOpen] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem(emphasisStorageKey, JSON.stringify([...activeEmphasis]))
+  }, [activeEmphasis])
 
   const topicCount = useMemo(
     () => chapters.reduce((sum, chapter) => sum + chapter.topics.length, 0),
@@ -45,7 +66,7 @@ function App() {
 
   return (
     <div className="desktop">
-      <header className="brand-bar">
+      <header className="brand-bar" id="study-guide-top">
         <div className="brand-mark">
           <h1>Pediatrics Nursing Web Guide</h1>
           <p className="tag">
@@ -106,8 +127,15 @@ function App() {
           <WinWindow title="Professor high-yield">
             <EmphasisPanel
               activeIds={activeEmphasis}
+              expanded={emphasisOpen}
               onToggle={toggleEmphasis}
               onClear={() => setActiveEmphasis(new Set())}
+              onToggleExpanded={() => setEmphasisOpen((current) => !current)}
+              onGoToGuide={() =>
+                document
+                  .getElementById('study-guide-top')
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
             />
           </WinWindow>
         ) : null}
