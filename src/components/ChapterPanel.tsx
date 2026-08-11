@@ -1,11 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import type { Chapter } from '../data/exam3'
+import type { Chapter } from '../data/types'
 import { TopicChip } from './TopicChip'
 
 type ChapterPanelProps = {
   chapter: Chapter
   open: boolean
   selectedTopicId: string | null
+  highlighted: boolean
+  highlightedTopicIds: Set<string>
   onToggle: () => void
   onSelectTopic: (topicId: string, topicTitle: string, chapterTitle: string) => void
 }
@@ -14,11 +16,15 @@ export function ChapterPanel({
   chapter,
   open,
   selectedTopicId,
+  highlighted,
+  highlightedTopicIds,
   onToggle,
   onSelectTopic,
 }: ChapterPanelProps) {
   return (
-    <article className={`chapter${open ? ' is-open' : ''}`}>
+    <article
+      className={`chapter${open ? ' is-open' : ''}${highlighted ? ' is-emphasized' : ''}`}
+    >
       <motion.button
         type="button"
         className="chapter-header"
@@ -27,7 +33,9 @@ export function ChapterPanel({
         whileTap={{ scale: 0.995 }}
       >
         <div className="chapter-copy">
-          <p className="chapter-kicker">Chapter {chapter.number}</p>
+          <p className="chapter-kicker">
+            {chapter.number == null ? 'Extra' : `Chapter ${chapter.number}`}
+          </p>
           <h3>{chapter.shortTitle}</h3>
           <p className="chapter-meta">
             {chapter.topics.length} topic{chapter.topics.length === 1 ? '' : 's'}
@@ -54,6 +62,7 @@ export function ChapterPanel({
                     key={topic.id}
                     label={topic.title}
                     active={selectedTopicId === topic.id}
+                    emphasized={highlightedTopicIds.has(topic.id) || highlighted}
                     onSelect={() =>
                       onSelectTopic(topic.id, topic.title, chapter.shortTitle)
                     }

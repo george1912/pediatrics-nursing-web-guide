@@ -1,15 +1,18 @@
-import {
-  clinicalJudgment,
-  diseaseFramework,
-  examMeta,
-} from '../data/exam3'
+import { getTopicContent } from '../data/content'
+import { diseaseFramework } from '../data/types'
 
 type FocusPanelProps = {
-  selected: { topicTitle: string; chapterTitle: string }
+  selected: {
+    topicId: string
+    topicTitle: string
+    chapterTitle: string
+  }
   onClose: () => void
 }
 
 export function FocusPanel({ selected, onClose }: FocusPanelProps) {
+  const blocks = getTopicContent(selected.topicId)
+
   return (
     <section className="focus-block" aria-label="Study focus">
       <div className="focus-block-head">
@@ -22,10 +25,23 @@ export function FocusPanel({ selected, onClose }: FocusPanelProps) {
         </button>
       </div>
 
-      <p className="lede">
-        Review this topic through pathophysiology → clinical presentation →
-        treatment → nursing process.
-      </p>
+      {blocks.length > 0 ? (
+        <div className="content-blocks">
+          {blocks.map((block, index) => (
+            <article className="content-block" key={`${block.heading ?? 'block'}-${index}`}>
+              {block.heading ? <h4>{block.heading}</h4> : null}
+              <p>{block.body}</p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="win-inset">
+          <p className="lede">
+            No study-guide text was placed in this bucket yet. Use the outline
+            and emphasis switches to find related filled topics.
+          </p>
+        </div>
+      )}
 
       <div className="framework-grid">
         {diseaseFramework.map((item) => (
@@ -34,21 +50,6 @@ export function FocusPanel({ selected, onClose }: FocusPanelProps) {
             <p>{item.detail}</p>
           </div>
         ))}
-      </div>
-
-      <div className="win-inset">
-        <h3 className="focus-subhead">Clinical judgment</h3>
-        <ul className="status-list">
-          {clinicalJudgment.map((line) => (
-            <li key={line}>
-              <span className="status-dot on" aria-hidden="true" />
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="focus-exam-note">
-          {examMeta.questionCount} questions · {examMeta.formats.join(' · ')}
-        </p>
       </div>
     </section>
   )

@@ -1,8 +1,12 @@
 import { useMemo, useState } from 'react'
 import { ChapterPanel } from './components/ChapterPanel'
+import { EmphasisPanel } from './components/EmphasisPanel'
 import { FocusPanel } from './components/FocusPanel'
 import { WinWindow } from './components/WinWindow'
-import { chapters, examMeta } from './data/exam3'
+import { chapters } from './data/chapters'
+import { emphasisItems } from './data/emphasis'
+import { examMeta } from './data/types'
+import type { EmphasisItem } from './data/types'
 import './index.css'
 
 type Selection = {
@@ -14,11 +18,30 @@ type Selection = {
 function App() {
   const [openChapterId, setOpenChapterId] = useState<string | null>(chapters[0]?.id ?? null)
   const [selection, setSelection] = useState<Selection | null>(null)
+  const [activeEmphasis, setActiveEmphasis] = useState<Set<string>>(() => new Set())
 
   const topicCount = useMemo(
     () => chapters.reduce((sum, chapter) => sum + chapter.topics.length, 0),
     [],
   )
+
+  const highlightedIds = useMemo(() => {
+    const ids = new Set<string>()
+    for (const item of emphasisItems) {
+      if (!activeEmphasis.has(item.id)) continue
+      for (const target of item.highlights) ids.add(target)
+    }
+    return ids
+  }, [activeEmphasis])
+
+  function toggleEmphasis(item: EmphasisItem) {
+    setActiveEmphasis((current) => {
+      const next = new Set(current)
+      if (next.has(item.id)) next.delete(item.id)
+      else next.add(item.id)
+      return next
+    })
+  }
 
   return (
     <div className="desktop">
@@ -26,23 +49,33 @@ function App() {
         <div className="brand-mark">
           <h1>Pediatrics Nursing Web Guide</h1>
           <p className="tag">
-            Pediatric nursing exam review — Exam 3 chapter outline.
+            Pediatric nursing exam review — Final Exam chapter outline and
+            study buckets.
           </p>
         </div>
         <div className="brand-meta">
           <div>{examMeta.title} · {examMeta.year}</div>
           <div>
-            {chapters.length} chapters · {topicCount} topics
+            {chapters.length} sections · {topicCount} topics
           </div>
         </div>
       </header>
 
       <main className="workspace">
+        <WinWindow title="Professor high-yield">
+          <EmphasisPanel
+            activeIds={activeEmphasis}
+            onToggle={toggleEmphasis}
+            onClear={() => setActiveEmphasis(new Set())}
+          />
+        </WinWindow>
+
         <WinWindow title={`${examMeta.title} Study Guide`}>
           <div className="win-inset">
             <p className="lede">
-              Open a chapter to see its topics. Select a topic to review the
-              study framework for that subject.
+              {examMeta.note}. Open a chapter, select a topic to read the
+              bucketed study-guide text. Use emphasis switches above to
+              highlight subjects to drill.
             </p>
           </div>
 
@@ -53,6 +86,8 @@ function App() {
                 chapter={chapter}
                 open={openChapterId === chapter.id}
                 selectedTopicId={selection?.topicId ?? null}
+                highlighted={highlightedIds.has(chapter.id)}
+                highlightedTopicIds={highlightedIds}
                 onToggle={() =>
                   setOpenChapterId((current) =>
                     current === chapter.id ? null : chapter.id,
@@ -71,10 +106,7 @@ function App() {
 
           {selection && (
             <FocusPanel
-              selected={{
-                topicTitle: selection.topicTitle,
-                chapterTitle: selection.chapterTitle,
-              }}
+              selected={selection}
               onClose={() => setSelection(null)}
             />
           )}
@@ -83,7 +115,13 @@ function App() {
 
       <footer className="taskbar">
         <div>NRBS 4110 · Nursing Practice with Children</div>
-        <div>{selection ? selection.topicTitle : `${topicCount} topics`}</div>
+        <div>
+          {activeEmphasis.size > 0
+            ? `${activeEmphasis.size} emphasis on`
+            : selection
+              ? selection.topicTitle
+              : `${topicCount} topics`}
+        </div>
       </footer>
     </div>
   )

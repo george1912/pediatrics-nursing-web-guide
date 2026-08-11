@@ -4,16 +4,22 @@ import { motion } from 'framer-motion'
 type TopicChipProps = {
   label: string
   active?: boolean
+  emphasized?: boolean
   onSelect: () => void
 }
 
-export function TopicChip({ label, active = false, onSelect }: TopicChipProps) {
+export function TopicChip({
+  label,
+  active = false,
+  emphasized = false,
+  onSelect,
+}: TopicChipProps) {
   const [shaking, setShaking] = useState(false)
 
   return (
     <motion.button
       type="button"
-      className={`topic${active ? ' is-active' : ''}${shaking ? ' shake' : ''}`}
+      className={`topic${active ? ' is-active' : ''}${emphasized ? ' is-emphasized' : ''}${shaking ? ' shake' : ''}`}
       aria-pressed={active}
       onMouseEnter={() => setShaking(true)}
       onAnimationEnd={() => setShaking(false)}
