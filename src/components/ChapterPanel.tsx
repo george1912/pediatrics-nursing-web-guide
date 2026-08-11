@@ -24,18 +24,13 @@ export function ChapterPanel({
         className="chapter-header"
         aria-expanded={open}
         onClick={onToggle}
-        whileHover={{ x: 2 }}
         whileTap={{ scale: 0.995 }}
       >
-        <div className="chapter-num">
-          <small>CH</small>
-          {chapter.number}
-        </div>
         <div className="chapter-copy">
+          <p className="chapter-kicker">Chapter {chapter.number}</p>
           <h3>{chapter.shortTitle}</h3>
-          <p>
-            {chapter.topics.length} topic{chapter.topics.length === 1 ? '' : 's'} · Ch.{' '}
-            {chapter.number}
+          <p className="chapter-meta">
+            {chapter.topics.length} topic{chapter.topics.length === 1 ? '' : 's'}
           </p>
         </div>
         <span className="chapter-chevron" aria-hidden="true">

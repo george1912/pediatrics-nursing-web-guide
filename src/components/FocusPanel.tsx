@@ -1,28 +1,34 @@
 import {
   clinicalJudgment,
-  coreFocus,
   diseaseFramework,
   examMeta,
 } from '../data/exam3'
 
 type FocusPanelProps = {
-  selected: { topicTitle: string; chapterTitle: string } | null
+  selected: { topicTitle: string; chapterTitle: string }
+  onClose: () => void
 }
 
-export function FocusPanel({ selected }: FocusPanelProps) {
+export function FocusPanel({ selected, onClose }: FocusPanelProps) {
   return (
-    <>
-      <div className="win-inset detail-pane">
-        <h3>{selected ? selected.topicTitle : 'Core focus areas'}</h3>
-        <p className="lede">
-          {selected
-            ? `Selected under ${selected.chapterTitle}. Review this topic through pathophysiology → clinical presentation → treatment → nursing process.`
-            : 'Open a chapter, select a topic, then review it through the disease-management framework.'}
-        </p>
+    <section className="focus-block" aria-label="Study focus">
+      <div className="focus-block-head">
+        <div>
+          <p className="chapter-kicker">{selected.chapterTitle}</p>
+          <h3>{selected.topicTitle}</h3>
+        </div>
+        <button type="button" className="pixel-btn" onClick={onClose}>
+          Close topic
+        </button>
       </div>
 
+      <p className="lede">
+        Review this topic through pathophysiology → clinical presentation →
+        treatment → nursing process.
+      </p>
+
       <div className="framework-grid">
-        {(selected ? diseaseFramework : coreFocus).map((item) => (
+        {diseaseFramework.map((item) => (
           <div className="framework-card" key={item.id}>
             <h4>{item.title}</h4>
             <p>{item.detail}</p>
@@ -31,9 +37,7 @@ export function FocusPanel({ selected }: FocusPanelProps) {
       </div>
 
       <div className="win-inset">
-        <h3 style={{ fontSize: '1.05rem', marginBottom: '0.45rem' }}>
-          Clinical judgment
-        </h3>
+        <h3 className="focus-subhead">Clinical judgment</h3>
         <ul className="status-list">
           {clinicalJudgment.map((line) => (
             <li key={line}>
@@ -42,10 +46,10 @@ export function FocusPanel({ selected }: FocusPanelProps) {
             </li>
           ))}
         </ul>
-        <p style={{ marginTop: '0.75rem', fontSize: '0.95rem' }}>
+        <p className="focus-exam-note">
           {examMeta.questionCount} questions · {examMeta.formats.join(' · ')}
         </p>
       </div>
-    </>
+    </section>
   )
 }

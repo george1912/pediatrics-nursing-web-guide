@@ -1,8 +1,8 @@
-# Nursing Pediatrics Study Page
+# Pediatrics Nursing Web Guide
 
-Interactive study page for pediatric nursing exam review (Exam 3 outline), with a clean black-and-white interface.
+Interactive web guide for pediatric nursing exam review (Exam 3 outline), with a clean black-and-white interface.
 
-**Live site:** https://george1912.github.io/nursing-pediatrics-study-page/
+**Live site:** https://george1912.github.io/pediatrics-nursing-web-guide/
 
 ## Develop
 

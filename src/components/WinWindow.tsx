@@ -11,11 +11,6 @@ export function WinWindow({ title, children, className = '' }: WinWindowProps) {
     <section className={`win ${className}`.trim()} aria-label={title}>
       <header className="win-titlebar">
         <h2>{title}</h2>
-        <div className="win-controls" aria-hidden="true">
-          <span>_</span>
-          <span>□</span>
-          <span>×</span>
-        </div>
       </header>
       <div className="win-body">{children}</div>
     </section>
