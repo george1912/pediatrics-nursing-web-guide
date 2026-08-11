@@ -26,10 +26,10 @@ function App() {
     <div className="desktop">
       <header className="brand-bar">
         <div className="brand-mark">
-          <h1>PED</h1>
+          <h1>Nursing Pediatrics</h1>
           <p className="tag">
-            Interactive pediatrics study desk — Exam 3 outline, built like an old
-            machine that still looks sharp.
+            Study page for pediatric nursing exam review — interactive chapter
+            outline for Exam 3.
           </p>
         </div>
         <div className="brand-meta">
@@ -41,7 +41,7 @@ function App() {
       </header>
 
       <main className="workspace">
-        <WinWindow title={`${examMeta.title} Study Guide.hlp`}>
+        <WinWindow title={`${examMeta.title} Study Guide`}>
           <div className="toolbar" role="toolbar" aria-label="Guide views">
             <button
               type="button"
@@ -57,7 +57,7 @@ function App() {
               aria-pressed={view === 'focus'}
               onClick={() => setView('focus')}
             >
-              Focus Frame
+              Study Focus
             </button>
             <button
               type="button"
@@ -75,8 +75,8 @@ function App() {
             <>
               <div className="win-inset">
                 <p className="lede">
-                  Subjects sit under chapter umbrellas. Hover a topic to make it
-                  shake, click to pin it into the focus frame.
+                  Topics are grouped under each chapter. Hover a topic for a
+                  quick highlight, then click to open it in Study Focus.
                 </p>
               </div>
               <div className="chapter-list">
@@ -115,23 +115,23 @@ function App() {
 
         <aside className="side-stack">
           <EightBitBox />
-          <WinWindow title="Buddy List">
+          <WinWindow title="Outline Status">
             <div className="win-inset">
               <ul className="status-list">
                 <li>
                   <span className="status-dot on" aria-hidden="true" />
-                  <span>GI · Renal · Endocrine online</span>
+                  <span>GI · Renal · Endocrine included</span>
                 </li>
                 <li>
                   <span className="status-dot on" aria-hidden="true" />
-                  <span>Neuro · MSK · Injury queued</span>
+                  <span>Neuro · MSK · Injury included</span>
                 </li>
                 <li>
                   <span className="status-dot" aria-hidden="true" />
                   <span>
                     {selection
-                      ? `Active: ${selection.topicTitle}`
-                      : 'No topic pinned yet'}
+                      ? `Selected: ${selection.topicTitle}`
+                      : 'No topic selected yet'}
                   </span>
                 </li>
               </ul>
@@ -143,10 +143,10 @@ function App() {
       <footer className="taskbar">
         <div className="taskbar-start" aria-hidden="true">
           <span>■</span>
-          <span>Start</span>
+          <span>Menu</span>
         </div>
         <div>NRBS 4110 · Nursing Practice with Children</div>
-        <div>{selection ? 'Topic pinned' : 'Idle'}</div>
+        <div>{selection ? 'Topic selected' : 'Ready'}</div>
       </footer>
     </div>
   )

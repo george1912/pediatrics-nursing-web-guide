@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
-/** Tiny CRT with an 8-bit pediatric nurse / bedside vibe — pure SVG pixels. */
+/** Compact CRT-style monitor decoration for the study page. */
 export function EightBitBox() {
   return (
-    <div className="bitbox" aria-label="8-bit status monitor">
+    <div className="bitbox" aria-label="Study page status monitor">
       <div className="bitbox-screen">
         <motion.svg
           className="pixel-art"
@@ -29,30 +29,15 @@ export function EightBitBox() {
           <rect x="18" y="6" width="2" height="1" fill="#e8e8e0" />
           <rect x="21" y="6" width="2" height="1" fill="#e8e8e0" />
 
-          {/* little patient figure */}
-          <rect x="11" y="11" width="6" height="5" fill="#111" />
-          <rect x="12" y="10" width="4" height="1" fill="#111" />
-          <rect x="12" y="12" width="1" height="1" fill="#e8e8e0" />
-          <rect x="15" y="12" width="1" height="1" fill="#e8e8e0" />
-          <rect x="13" y="14" width="2" height="1" fill="#e8e8e0" />
-
-          {/* heart blip */}
-          <motion.g
-            animate={{ opacity: [1, 0.25, 1] }}
-            transition={{ duration: 0.9, repeat: Infinity }}
-          >
-            <rect x="20" y="12" width="2" height="1" fill="#111" />
-            <rect x="19" y="13" width="1" height="1" fill="#111" />
-            <rect x="22" y="13" width="1" height="1" fill="#111" />
-            <rect x="20" y="14" width="2" height="1" fill="#111" />
-          </motion.g>
-
-          {/* bed / base */}
-          <rect x="8" y="17" width="12" height="2" fill="#111" />
-          <rect x="7" y="19" width="14" height="1" fill="#555" />
+          {/* study document icon */}
+          <rect x="10" y="10" width="8" height="10" fill="#111" />
+          <rect x="11" y="11" width="6" height="8" fill="#e8e8e0" />
+          <rect x="12" y="13" width="4" height="1" fill="#111" />
+          <rect x="12" y="15" width="4" height="1" fill="#111" />
+          <rect x="12" y="17" width="3" height="1" fill="#111" />
         </motion.svg>
       </div>
-      <p className="bitbox-caption">PED MONITOR · ONLINE</p>
+      <p className="bitbox-caption">NURSING PEDIATRICS · STUDY</p>
     </div>
   )
 }

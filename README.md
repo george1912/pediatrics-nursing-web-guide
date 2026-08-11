@@ -1,8 +1,8 @@
-# PED · Exam 3 Study Desk
+# Nursing Pediatrics Study Page
 
-Interactive pediatrics study guide with a black-and-white 90s desktop aesthetic.
+Interactive study page for pediatric nursing exam review (Exam 3 outline), with a clean black-and-white interface.
 
-**Live site:** https://george1912.github.io/ped-fun-page/
+**Live site:** https://george1912.github.io/nursing-pediatrics-study-page/
 
 ## Develop
 

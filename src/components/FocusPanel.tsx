@@ -16,8 +16,8 @@ export function FocusPanel({ selected }: FocusPanelProps) {
         <h3>{selected ? selected.topicTitle : 'Core focus areas'}</h3>
         <p className="lede">
           {selected
-            ? `Pinned under ${selected.chapterTitle}. Run this topic through patho → presentation → treatment → nursing process.`
-            : 'Open a chapter, shake a topic open, then study it through the disease-management frame.'}
+            ? `Selected under ${selected.chapterTitle}. Review this topic through pathophysiology → clinical presentation → treatment → nursing process.`
+            : 'Open a chapter, select a topic, then review it through the disease-management framework.'}
         </p>
       </div>
 
