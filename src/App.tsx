@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ChapterPanel } from './components/ChapterPanel'
 import { EmphasisPanel } from './components/EmphasisPanel'
+import { FocusPanel } from './components/FocusPanel'
 import { WinWindow } from './components/WinWindow'
 import { chapters } from './data/chapters'
 import { emphasisItems } from './data/emphasis'
@@ -62,53 +63,54 @@ function App() {
 
       <main className="workspace">
         <WinWindow title={`${examMeta.title} Study Guide`}>
-          <div className="win-inset">
-            <p className="lede">
-              {examMeta.note}. Open a chapter, select a topic to read the
-              study-guide text directly beneath it. Topics with source content
-              appear first; topics still awaiting material are clearly marked.
-            </p>
-          </div>
+          {selection ? (
+            <FocusPanel
+              selected={selection}
+              onClose={() => setSelection(null)}
+            />
+          ) : (
+            <>
+              <div className="win-inset">
+                <p className="lede">
+                  {examMeta.note}. Open a chapter, then choose one topic for a
+                  focused reading view. Topics with source content appear first;
+                  topics still awaiting material are clearly marked.
+                </p>
+              </div>
 
-          <div className="chapter-list">
-            {chapters.map((chapter) => (
-              <ChapterPanel
-                key={chapter.id}
-                chapter={chapter}
-                open={openChapterId === chapter.id}
-                selectedTopicId={selection?.topicId ?? null}
-                highlighted={highlightedIds.has(chapter.id)}
-                highlightedTopicIds={highlightedIds}
-                selected={
-                  selection && chapter.topics.some((topic) => topic.id === selection.topicId)
-                    ? selection
-                    : null
-                }
-                onToggle={() =>
-                  setOpenChapterId((current) =>
-                    current === chapter.id ? null : chapter.id,
-                  )
-                }
-                onSelectTopic={(topicId, topicTitle, chapterTitle) => {
-                  setSelection((current) =>
-                    current?.topicId === topicId
-                      ? null
-                      : { topicId, topicTitle, chapterTitle },
-                  )
-                }}
-                onCloseTopic={() => setSelection(null)}
-              />
-            ))}
-          </div>
+              <div className="chapter-list">
+                {chapters.map((chapter) => (
+                  <ChapterPanel
+                    key={chapter.id}
+                    chapter={chapter}
+                    open={openChapterId === chapter.id}
+                    selectedTopicId={null}
+                    highlighted={highlightedIds.has(chapter.id)}
+                    highlightedTopicIds={highlightedIds}
+                    onToggle={() =>
+                      setOpenChapterId((current) =>
+                        current === chapter.id ? null : chapter.id,
+                      )
+                    }
+                    onSelectTopic={(topicId, topicTitle, chapterTitle) => {
+                      setSelection({ topicId, topicTitle, chapterTitle })
+                    }}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </WinWindow>
 
-        <WinWindow title="Professor high-yield">
-          <EmphasisPanel
-            activeIds={activeEmphasis}
-            onToggle={toggleEmphasis}
-            onClear={() => setActiveEmphasis(new Set())}
-          />
-        </WinWindow>
+        {!selection ? (
+          <WinWindow title="Professor high-yield">
+            <EmphasisPanel
+              activeIds={activeEmphasis}
+              onToggle={toggleEmphasis}
+              onClear={() => setActiveEmphasis(new Set())}
+            />
+          </WinWindow>
+        ) : null}
       </main>
 
       <footer className="taskbar">

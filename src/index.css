@@ -422,11 +422,6 @@ p {
   background: transparent;
 }
 
-.chapter-topic-detail {
-  grid-column: 1 / -1;
-  min-width: 0;
-}
-
 .focus-block {
   border: 2px solid var(--ink);
   background: #fff4d6;
@@ -445,11 +440,19 @@ p {
   justify-content: space-between;
   gap: 0.85rem;
   flex-wrap: wrap;
+  padding-bottom: 0.85rem;
+  border-bottom: 3px solid var(--ink);
 }
 
 .focus-block-head h3 {
-  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
   overflow-wrap: anywhere;
+}
+
+.focus-eyebrow {
+  font-family: var(--font-pixel);
+  color: var(--titlebar);
+  margin-bottom: 0.35rem;
 }
 
 .focus-subhead {
@@ -653,30 +656,95 @@ p {
 .content-blocks {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 1rem;
 }
 
 .content-block {
   border: 2px solid var(--ink);
   background: #fffefa;
-  padding: 0.85rem 0.95rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
   box-shadow: var(--bevel-out);
   min-width: 0;
+  border-left: 7px solid var(--titlebar);
 }
 
 .content-block h4 {
-  font-size: 1.05rem;
-  margin-bottom: 0.4rem;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  margin-bottom: 0.75rem;
   color: var(--titlebar);
   border-bottom: 2px solid var(--accent-soft);
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.5rem;
 }
 
-.content-block p {
-  font-size: 1rem;
-  line-height: 1.55;
-  white-space: pre-wrap;
+.content-block.is-high-yield {
+  background: #fff7cf;
+  border-left-color: var(--highlight);
+}
+
+.content-block.is-alert {
+  background: #fff0e8;
+  border-left-color: var(--accent);
+}
+
+.content-block.is-action {
+  background: #eef9f5;
+  border-left-color: var(--ready);
+}
+
+.study-prose,
+.study-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.study-prose p,
+.study-bullet,
+.study-row {
+  font-size: clamp(1rem, 2vw, 1.08rem);
+  line-height: 1.65;
   overflow-wrap: anywhere;
+}
+
+.study-bullet {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+}
+
+.study-bullet > span:first-child {
+  color: var(--accent);
+  font-size: 0.7rem;
+  padding-top: 0.48rem;
+}
+
+.study-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 0.55rem;
+  padding: 0.75rem;
+  background: #f4f8fb;
+  border: 1px solid #9eb2c2;
+}
+
+.study-row:nth-child(even) {
+  background: #fffaf0;
+}
+
+.study-row span {
+  min-width: 0;
+}
+
+.study-row-label {
+  font-weight: 700;
+  color: var(--titlebar);
+}
+
+.key-term {
+  font-weight: 800;
+  color: #a52e22;
+  background: #ffe3d8;
+  padding: 0 0.12em;
 }
 
 .shake {

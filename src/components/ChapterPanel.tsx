@@ -1,14 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { getTopicContent } from '../data/content'
 import type { Chapter } from '../data/types'
-import { FocusPanel } from './FocusPanel'
 import { TopicChip } from './TopicChip'
-
-type SelectedTopic = {
-  topicId: string
-  topicTitle: string
-  chapterTitle: string
-}
 
 type ChapterPanelProps = {
   chapter: Chapter
@@ -16,10 +9,8 @@ type ChapterPanelProps = {
   selectedTopicId: string | null
   highlighted: boolean
   highlightedTopicIds: Set<string>
-  selected: SelectedTopic | null
   onToggle: () => void
   onSelectTopic: (topicId: string, topicTitle: string, chapterTitle: string) => void
-  onCloseTopic: () => void
 }
 
 export function ChapterPanel({
@@ -28,10 +19,8 @@ export function ChapterPanel({
   selectedTopicId,
   highlighted,
   highlightedTopicIds,
-  selected,
   onToggle,
   onSelectTopic,
-  onCloseTopic,
 }: ChapterPanelProps) {
   const readyTopics = chapter.topics.filter((topic) => getTopicContent(topic.id).length > 0)
   const incompleteTopics = chapter.topics.filter(
@@ -106,11 +95,6 @@ export function ChapterPanel({
                       />
                     ))}
                   </>
-                ) : null}
-                {selected ? (
-                  <div className="chapter-topic-detail">
-                    <FocusPanel selected={selected} onClose={onCloseTopic} />
-                  </div>
                 ) : null}
               </motion.div>
             )}
