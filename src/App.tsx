@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { ChapterPanel } from './components/ChapterPanel'
 import { EmphasisPanel } from './components/EmphasisPanel'
-import { FocusPanel } from './components/FocusPanel'
 import { WinWindow } from './components/WinWindow'
 import { chapters } from './data/chapters'
 import { emphasisItems } from './data/emphasis'
@@ -62,20 +61,12 @@ function App() {
       </header>
 
       <main className="workspace">
-        <WinWindow title="Professor high-yield">
-          <EmphasisPanel
-            activeIds={activeEmphasis}
-            onToggle={toggleEmphasis}
-            onClear={() => setActiveEmphasis(new Set())}
-          />
-        </WinWindow>
-
         <WinWindow title={`${examMeta.title} Study Guide`}>
           <div className="win-inset">
             <p className="lede">
               {examMeta.note}. Open a chapter, select a topic to read the
-              bucketed study-guide text. Use emphasis switches above to
-              highlight subjects to drill.
+              study-guide text directly beneath it. Topics with source content
+              appear first; topics still awaiting material are clearly marked.
             </p>
           </div>
 
@@ -88,6 +79,11 @@ function App() {
                 selectedTopicId={selection?.topicId ?? null}
                 highlighted={highlightedIds.has(chapter.id)}
                 highlightedTopicIds={highlightedIds}
+                selected={
+                  selection && chapter.topics.some((topic) => topic.id === selection.topicId)
+                    ? selection
+                    : null
+                }
                 onToggle={() =>
                   setOpenChapterId((current) =>
                     current === chapter.id ? null : chapter.id,
@@ -100,16 +96,18 @@ function App() {
                       : { topicId, topicTitle, chapterTitle },
                   )
                 }}
+                onCloseTopic={() => setSelection(null)}
               />
             ))}
           </div>
+        </WinWindow>
 
-          {selection && (
-            <FocusPanel
-              selected={selection}
-              onClose={() => setSelection(null)}
-            />
-          )}
+        <WinWindow title="Professor high-yield">
+          <EmphasisPanel
+            activeIds={activeEmphasis}
+            onToggle={toggleEmphasis}
+            onClear={() => setActiveEmphasis(new Set())}
+          />
         </WinWindow>
       </main>
 

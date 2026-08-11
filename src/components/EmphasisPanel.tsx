@@ -17,7 +17,7 @@ export function EmphasisPanel({ activeIds, onToggle, onClear }: EmphasisPanelPro
           <h2>Emphasis switches</h2>
           <p className="lede">
             Professor-confirmed high-yield from the study guide. Flip a switch to
-            highlight the matching subjects in the outline below.
+            highlight the matching subjects in the outline above.
           </p>
         </div>
         {anyOn && (

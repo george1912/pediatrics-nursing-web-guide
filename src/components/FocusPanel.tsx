@@ -1,5 +1,4 @@
 import { getTopicContent } from '../data/content'
-import { diseaseFramework } from '../data/types'
 
 type FocusPanelProps = {
   selected: {
@@ -35,22 +34,14 @@ export function FocusPanel({ selected, onClose }: FocusPanelProps) {
           ))}
         </div>
       ) : (
-        <div className="win-inset">
+        <div className="content-empty">
+          <strong>Needs source material</strong>
           <p className="lede">
-            No study-guide text was placed in this bucket yet. Use the outline
-            and emphasis switches to find related filled topics.
+            This topic appears in the outline, but the supplied study guide does
+            not include a distinct section for it yet.
           </p>
         </div>
       )}
-
-      <div className="framework-grid">
-        {diseaseFramework.map((item) => (
-          <div className="framework-card" key={item.id}>
-            <h4>{item.title}</h4>
-            <p>{item.detail}</p>
-          </div>
-        ))}
-      </div>
     </section>
   )
 }
