@@ -4,7 +4,7 @@ export const emphasisItems: EmphasisItem[] = [
   {
     id: 'cumulative-exam',
     label: 'Fully cumulative exam',
-    detail: '■ The exam is FULLY CUMULATIVE (Exams 1–3). Emphasis: mostly MUSCULOSKELETAL, plus immunizations and growth/development. Renal and vision/hearing = basic info only. Hirschsprung disease is NOT on the exam (per professor). Expect some items where the order is wrong and you must recognize it.',
+    detail: 'The exam is fully cumulative (Exams 1–3). Emphasis: mostly musculoskeletal, plus immunizations and growth/development. Renal and vision/hearing require basic information only. Hirschsprung disease is not included. Expect items that require recognizing an unsafe order.',
     highlights: ['msk', 'immunizations', 'milestones', 'core-vitals', 'renal', 'vision', 'hirschsprung', 'wrong-orders'],
   },
   {
@@ -16,55 +16,55 @@ export const emphasisItems: EmphasisItem[] = [
   {
     id: 'immunizations-growth',
     label: 'Immunizations + growth/development',
-    detail: 'Immunizations + height/weight WILL reappear — review the schedule + growth norms in Core Focus.',
+    detail: 'Immunizations and height/weight will reappear; review the schedule and growth norms in Core Focus.',
     highlights: ['immunizations', 'milestones', 'core-vitals'],
   },
   {
     id: 'renal-basic',
-    label: 'Renal = basic info only',
-    detail: 'Renal and vision/hearing = basic info only.',
+    label: 'Basic renal scope',
+    detail: 'Renal content requires basic information only.',
     highlights: ['renal', 'uti', 'enuresis', 'agn', 'nephrotic', 'hus', 'renal-failure', 'transplant'],
   },
   {
     id: 'vision-hearing-basic',
-    label: 'Vision/hearing = basic info only',
-    detail: 'Renal and vision/hearing = basic info only.',
+    label: 'Basic vision/hearing scope',
+    detail: 'Vision and hearing content requires basic information only.',
     highlights: ['vision', 'otitis', 'conjunctivitis', 'eye-injury', 'amblyopia', 'eyes-ears'],
   },
   {
     id: 'hirschsprung-not-on-exam',
-    label: 'Hirschsprung NOT on exam',
-    detail: 'Hirschsprung disease is NOT on the exam (per professor).',
+    label: 'Hirschsprung excluded from exam',
+    detail: 'Hirschsprung disease is not included on the exam.',
     highlights: ['hirschsprung'],
   },
   {
     id: 'named-signs',
     label: 'Named signs & terms',
-    detail: 'Named signs & terms she called out (know the definition + the disease)',
+    detail: 'Know each named sign or term, its definition, and its associated condition.',
     highlights: ['named-signs', 'msk', 'gi', 'pyloric', 'intussusception', 'md', 'ddh', 'scoliosis', 'other-gi'],
   },
   {
     id: 'appendicitis-signs',
     label: 'Appendicitis signs (all four)',
-    detail: 'Appendicitis signs (she named all four)',
+    detail: 'Know all four appendicitis signs.',
     highlights: ['named-signs', 'other-gi', 'gi'],
   },
   {
     id: 'insulin-rules',
-    label: 'Insulin rules she stressed',
-    detail: 'Insulin rules she stressed (clarified — a couple correct the slides)',
+    label: 'Insulin rules',
+    detail: 'Insulin calculation and administration rules.',
     highlights: ['diabetes', 'hypo-hyper', 'bolus', 'isf', 'target-bg', 'bg-monitor', 'endocrine'],
   },
   {
     id: 'stool-colors',
-    label: 'Stool colors (white color)',
-    detail: 'Stool colors (she asked about the \'white color\')',
+    label: 'Stool colors',
+    detail: 'Stool colors and their clinical significance, including white or acholic stool.',
     highlights: ['stool-colors', 'gi', 'pyloric', 'intussusception', 'hepatitis'],
   },
   {
     id: 'strep-complications',
     label: 'Complications of untreated strep',
-    detail: 'Complications of untreated strep (she listed these)',
+    detail: 'Complications associated with untreated group A strep.',
     highlights: ['strep-complications', 'agn', 'renal'],
   },
   {
@@ -76,7 +76,7 @@ export const emphasisItems: EmphasisItem[] = [
   {
     id: 'transplant-immunosuppression',
     label: 'Organ transplant / immunosuppression',
-    detail: 'Organ transplant / immunosuppression (she detailed this)',
+    detail: 'Organ transplant and immunosuppression safety considerations.',
     highlights: ['transplant', 'renal', 'immunizations'],
   },
   {
@@ -93,8 +93,8 @@ export const emphasisItems: EmphasisItem[] = [
   },
   {
     id: 'wrong-orders',
-    label: 'Recognizing a wrong order',
-    detail: 'Recognizing a WRONG order (she said these will appear)',
+    label: 'Unsafe orders',
+    detail: 'Recognize orders that should be questioned for safety.',
     highlights: ['wrong-orders', 'misc'],
   },
   {

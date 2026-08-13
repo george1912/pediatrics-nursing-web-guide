@@ -24,8 +24,7 @@ export const CONTENT: Record<string, ContentBlock[]> = {
   ],
   'burns': [
     { heading: '4. Burns', body: '• Depth: 1st (superficial) red/dry/painful; 2nd (partial) blistered/moist/very painful; 3rd (full) dry/waxy/leathery, painless. Inhalation injury (facial burns, singed nares, soot, hoarseness) = airway priority.' },
-    { body: '• Management: ABCs first; stop the burning (remove clothing); cool with saline (not ice); leave blisters intact; silver sulfadiazine; sterile dressing; pain control; fluids; tetanus. Estimate %TBSA with a pediatric-modified Rule of Nines. Assess for abuse (stocking/glove or patterned burns).' },
-    { heading: 'Quick hit', body: 'Burns: Rule of Nines (or Lund-Browder for children).' },
+    { body: '• Management: ABCs first; stop the burning (remove clothing); cool with saline (not ice); leave blisters intact; silver sulfadiazine; sterile dressing; pain control; fluids; tetanus. Estimate %TBSA with a pediatric-modified Rule of Nines or Lund-Browder chart. Assess for abuse (stocking/glove or patterned burns).' },
   ],
   'home-safety': [
     { heading: '5. Injury Prevention by mechanism (teaching)', body: '• Water heater <120°F; smoke detectors + fire drills; safe cribs (slats ≤2 3/8 in apart, firm mattress, no gaps); stair gates, no baby walkers; window guards; lock meds/chemicals; car seats (rear-facing until ≥2 yr).' },

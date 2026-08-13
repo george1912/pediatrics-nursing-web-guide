@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ChapterPanel } from './components/ChapterPanel'
 import { EmphasisPanel } from './components/EmphasisPanel'
 import { FocusPanel } from './components/FocusPanel'
@@ -36,10 +36,35 @@ function App() {
   const [selection, setSelection] = useState<Selection | null>(null)
   const [activeEmphasis, setActiveEmphasis] = useState<Set<string>>(loadSavedEmphasis)
   const [emphasisOpen, setEmphasisOpen] = useState(false)
+  const browseScrollPosition = useRef(0)
+  const restoreBrowsePosition = useRef(false)
 
   useEffect(() => {
     localStorage.setItem(emphasisStorageKey, JSON.stringify([...activeEmphasis]))
   }, [activeEmphasis])
+
+  useEffect(() => {
+    if (selection) {
+      requestAnimationFrame(() => {
+        document
+          .getElementById('study-guide-window')
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+      return
+    }
+
+    if (restoreBrowsePosition.current) {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, browseScrollPosition.current)
+        restoreBrowsePosition.current = false
+      })
+    }
+  }, [selection])
+
+  function closeTopic() {
+    restoreBrowsePosition.current = true
+    setSelection(null)
+  }
 
   const topicCount = useMemo(
     () => chapters.reduce((sum, chapter) => sum + chapter.topics.length, 0),
@@ -70,8 +95,7 @@ function App() {
         <div className="brand-mark">
           <h1>Pediatrics Nursing Web Guide</h1>
           <p className="tag">
-            Pediatric nursing exam review — Final Exam chapter outline and
-            study buckets.
+            Pediatric nursing exam review — organized by chapter and clinical topic.
           </p>
         </div>
         <div className="brand-meta">
@@ -83,48 +107,51 @@ function App() {
       </header>
 
       <main className="workspace">
-        <WinWindow title={`${examMeta.title} Study Guide`}>
-          {selection ? (
-            <FocusPanel
-              selected={selection}
-              onClose={() => setSelection(null)}
-            />
-          ) : (
-            <>
-              <div className="win-inset">
-                <p className="lede">
-                  {examMeta.note}. Open a chapter, then choose one topic for a
-                  focused reading view. Topics with source content appear first;
-                  topics still awaiting material are clearly marked.
-                </p>
-              </div>
+        <section id="study-guide-window">
+          <WinWindow title={`${examMeta.title} Study Guide`}>
+            {selection ? (
+              <FocusPanel
+                selected={selection}
+                onClose={closeTopic}
+              />
+            ) : (
+              <>
+                <div className="win-inset">
+                  <p className="lede">
+                    {examMeta.note}. Open a chapter, then choose one topic for a
+                    focused reading view. Topics with source content appear first;
+                    topics still awaiting material are clearly marked.
+                  </p>
+                </div>
 
-              <div className="chapter-list">
-                {chapters.map((chapter) => (
-                  <ChapterPanel
-                    key={chapter.id}
-                    chapter={chapter}
-                    open={openChapterId === chapter.id}
-                    selectedTopicId={null}
-                    highlighted={highlightedIds.has(chapter.id)}
-                    highlightedTopicIds={highlightedIds}
-                    onToggle={() =>
-                      setOpenChapterId((current) =>
-                        current === chapter.id ? null : chapter.id,
-                      )
-                    }
-                    onSelectTopic={(topicId, topicTitle, chapterTitle) => {
-                      setSelection({ topicId, topicTitle, chapterTitle })
-                    }}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </WinWindow>
+                <div className="chapter-list">
+                  {chapters.map((chapter) => (
+                    <ChapterPanel
+                      key={chapter.id}
+                      chapter={chapter}
+                      open={openChapterId === chapter.id}
+                      selectedTopicId={null}
+                      highlighted={highlightedIds.has(chapter.id)}
+                      highlightedTopicIds={highlightedIds}
+                      onToggle={() =>
+                        setOpenChapterId((current) =>
+                          current === chapter.id ? null : chapter.id,
+                        )
+                      }
+                      onSelectTopic={(topicId, topicTitle, chapterTitle) => {
+                        browseScrollPosition.current = window.scrollY
+                        setSelection({ topicId, topicTitle, chapterTitle })
+                      }}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </WinWindow>
+        </section>
 
         {!selection ? (
-          <WinWindow title="Professor high-yield">
+          <WinWindow title="Exam emphasis">
             <EmphasisPanel
               activeIds={activeEmphasis}
               expanded={emphasisOpen}
@@ -142,7 +169,7 @@ function App() {
       </main>
 
       <footer className="taskbar">
-        <div>NRBS 4110 · Nursing Practice with Children</div>
+        <div>Pediatric Nursing · Comprehensive Review</div>
         <div>
           {activeEmphasis.size > 0
             ? `${activeEmphasis.size} emphasis on`

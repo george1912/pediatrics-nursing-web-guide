@@ -11,7 +11,7 @@ export const CONTENT: Record<string, ContentBlock[]> = {
       body: `Newborn seizures: often subtle (lip-smacking, eye deviation, bicycling, apnea); causes = metabolic (hypoglycemia, hypocalcemia), infection, birth trauma, maternal substance use. Check glucose + calcium + CSF.`,
     },
     {
-      heading: "Professor quick hit",
+      heading: "Key point",
       body: `Seizures need OXYGEN — airway + O2 during/after; side-lying; suction.`,
     }
   ],
@@ -40,10 +40,6 @@ export const CONTENT: Record<string, ContentBlock[]> = {
     {
       heading: "Meningitis",
       body: `Meningitis: nuchal rigidity, +Kernig/+Brudzinski, fever, photophobia; LP is definitive (bacterial: ↑WBC/↑protein/↓glucose); droplet precautions first 24 h of antibiotics.`,
-    },
-    {
-      heading: "Professor quick hit",
-      body: `Meningitis: droplet precautions first 24 h of antibiotics; nuchal rigidity, +Kernig/+Brudzinski.`,
     }
   ],
   "icp": [
@@ -54,10 +50,7 @@ export const CONTENT: Record<string, ContentBlock[]> = {
   ],
   "neuro-assess": [
     {
-      heading: "Assessment of the Neurological System",
-      body: `Full neuro detail (seizures, head injury, spinal cord injury, meningitis, ↑ICP, GCS) is in your Exam 2 guide — the essentials are repeated here for the final.`,
-    },
-    {
+      heading: "Neurological assessment",
       body: `Head injury: monitor LOC (most sensitive), pupils, VS; teach return-to-ED signs (worsening headache, repeated vomiting, unequal pupils, drowsiness/confusion).`,
     },
     {
@@ -106,13 +99,13 @@ export const CONTENT: Record<string, ContentBlock[]> = {
   "eye-injury": [
     {
       heading: "Eye injuries",
-      body: `Eye injuries: chemical splash → immediate copious irrigation; penetrating/foreign object → do NOT remove, stabilize + shield both eyes, seek care; give nothing to touch/rub the eye. [txt]`,
+      body: `Eye injuries: chemical splash → immediate copious irrigation; penetrating/foreign object → do NOT remove, stabilize + shield both eyes, seek care; prevent touching or rubbing the eye.`,
     }
   ],
   "amblyopia": [
     {
       heading: "Amblyopia / strabismus",
-      body: `Amblyopia / strabismus: patch or correct the stronger eye to strengthen the weaker; treat early to preserve vision. [txt]`,
+      body: `Amblyopia / strabismus: patch or correct the stronger eye to strengthen the weaker; treat early to preserve vision.`,
     }
   ],
   "eyes-ears": [
@@ -120,8 +113,8 @@ export const CONTENT: Record<string, ContentBlock[]> = {
       heading: "Assessment of the Eyes and Ears \u2014 Vision & hearing (Ch 50)",
       body: `Otitis media: middle-ear infection; bulging/red immobile tympanic membrane, fever, ear tugging, irritability. Position upright; antibiotics + analgesia; feed infants upright (not flat with a propped bottle); avoid secondhand smoke; keep PCV up to date; recurrent → tympanostomy tubes.
 Conjunctivitis (pink eye): red sclera, discharge, morning crusting; bacterial = antibiotic drops; highly contagious → contact precautions + hand hygiene; out of school ~24 h after starting treatment.
-Eye injuries: chemical splash → immediate copious irrigation; penetrating/foreign object → do NOT remove, stabilize + shield both eyes, seek care; give nothing to touch/rub the eye. [txt]
-Amblyopia / strabismus: patch or correct the stronger eye to strengthen the weaker; treat early to preserve vision. [txt]`,
+Eye injuries: chemical splash → immediate copious irrigation; penetrating/foreign object → do NOT remove, stabilize + shield both eyes, seek care; prevent touching or rubbing the eye.
+Amblyopia / strabismus: patch or correct the stronger eye to strengthen the weaker; treat early to preserve vision.`,
     }
   ]
 }

@@ -7,7 +7,7 @@ export const CONTENT: Record<string, ContentBlock[]> = {
     { heading: 'Red flags — when to suspect', body: '• Injury inconsistent with the history or the child’s developmental stage; conflicting/changing stories; delay in seeking care.' },
     { body: '• Patterned injuries (belt/cord/cigarette burns, immersion/stocking-glove burns), injuries in various stages of healing, spiral fractures in non-ambulatory infants.' },
     { body: '• Munchausen syndrome by proxy: caregiver fabricates/induces illness; illness resolves when the caregiver is removed.' },
-    { body: '■ Nurses are MANDATORY REPORTERS. Report suspected abuse to Child Protective Services (within 24–48 h) — you do NOT need proof, only reasonable suspicion. Document objectively (quotes, body-map, photos), ensure the child’s safety, treat injuries. Failure to report is a crime.' },
+    { body: '■ Nurses are MANDATORY REPORTERS. Report suspected abuse to Child Protective Services (within 24–48 h) — proof is not required, only reasonable suspicion. Document objectively (quotes, body-map, photos), ensure the child’s safety, treat injuries. Failure to report is a crime.' },
   ],
   'fft': [
     { heading: '2. Failure to Thrive (FTT)', body: 'Weight <3rd–5th percentile or a drop across 2 major percentiles. Organic (medical) or non-organic (psychosocial/neglect). Weight drops first, then height, then head circumference. Treat: restore nutrition, observe feeding interactions, interdisciplinary approach, caregiver education + support, close growth follow-up.' },

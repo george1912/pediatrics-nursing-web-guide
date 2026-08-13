@@ -3,8 +3,8 @@ import type { ContentBlock } from '../types'
 export const CONTENT: Record<string, ContentBlock[]> = {
   "msk-assess": [
     {
-      heading: "S&S / assessment",
-      body: `Pain, deformity, edema, ecchymosis, warmth/redness, ↓ROM; confirm with X-ray. Always rule out child maltreatment with unexplained injuries (esp. spiral fractures, injuries inconsistent with the story or the child’s developmental stage).`,
+      heading: "Signs and assessment",
+      body: `Pain, deformity, edema, ecchymosis, warmth/redness, ↓ROM; confirm with X-ray. Evaluate unexplained injuries for child maltreatment (esp. spiral fractures, injuries inconsistent with the story or the child’s developmental stage).`,
     },
     {
       heading: "Neurovascular checks \u2014 the 6 P\u2019s (do frequently on any cast/injury)",
@@ -13,10 +13,10 @@ export const CONTENT: Record<string, ContentBlock[]> = {
   ],
   "fractures": [
     {
-      heading: "Fracture types + interventions (know the types)",
+      heading: "Fracture types",
       body: `Type | Description
 Greenstick | Incomplete — bone bends and cracks on one side (common in children)
-Buckle / torus | Bone buckles/compresses (common in kids)
+Buckle / torus | Bone buckles/compresses (common in children)
 Spiral | Twisting force — raises suspicion of abuse in non-ambulatory infants
 Transverse / oblique | Straight-across / angled break
 Comminuted | Bone shattered into ≥3 fragments
@@ -29,8 +29,8 @@ Epiphyseal (growth plate) | Salter-Harris; can affect future growth`,
       body: `Interventions: immobilize + neurovascular checks (6 P’s), reduce (closed/open), cast or traction, ice + elevation early, analgesia, protein for healing. Watch for compartment syndrome (pain out of proportion + with passive stretch).`,
     },
     {
-      heading: "Fractures \u2014 S&S / assessment",
-      body: `Pain, deformity, edema, ecchymosis, warmth/redness, ↓ROM; confirm with X-ray. Always rule out child maltreatment with unexplained injuries (esp. spiral fractures, injuries inconsistent with the story or the child’s developmental stage).`,
+      heading: "Fracture signs and assessment",
+      body: `Pain, deformity, edema, ecchymosis, warmth/redness, ↓ROM; confirm with X-ray. Evaluate unexplained injuries for child maltreatment (esp. spiral fractures, injuries inconsistent with the story or the child’s developmental stage).`,
     }
   ],
   "casts-traction": [
@@ -52,12 +52,6 @@ Epiphyseal (growth plate) | Salter-Harris; can affect future growth`,
     {
       heading: "Compartment syndrome",
       body: `■ Compartment syndrome = increased pressure in a muscle compartment → ischemia. EARLIEST + most reliable sign is pain out of proportion, unrelieved by analgesia + worse with passive stretch. Later: pallor, paresthesia, pulselessness. It is a limb-threatening EMERGENCY → notify provider immediately, do NOT elevate above heart level, loosen/bivalve the cast; may need fasciotomy.`,
-    },
-    {
-      body: `Pain out of proportion + passive stretch pain → Compartment syndrome`,
-    },
-    {
-      body: `Compartment syndrome → do NOT elevate above heart, loosen the cast, notify provider.`,
     }
   ],
   "mobility": [
@@ -66,7 +60,7 @@ Epiphyseal (growth plate) | Salter-Harris; can affect future growth`,
       body: `• Crutches: fit = 2–3 finger-widths below the axilla, elbows slightly flexed; bear weight on the HANDS, not the axillae (axillary pressure → nerve/brachial-plexus injury). Tripod stance. Stairs: ‘up with the good, down with the bad’ (good leg leads going up; crutches + bad leg lead going down).
 • Cane: hold on the strong/unaffected side; advance the cane with the weak leg.
 • Walker: pick it up, set it down, then step into it; don’t push it too far ahead.
-• Transfers: lock the wheelchair, move toward the patient’s strong side, use a gait belt, keep your back straight and knees bent.`,
+• Transfers: lock the wheelchair, move toward the patient’s strong side, use a gait belt, and keep the back straight and knees bent.`,
     }
   ],
   "assistive": [
@@ -93,22 +87,12 @@ Epiphyseal (growth plate) | Salter-Harris; can affect future growth`,
     {
       heading: "Management",
       body: `Treat early. Pavlik harness (keeps hips flexed + abducted) for infants; older: Bryant traction, closed reduction + hip spica cast. Teach harness/cast care, skin checks, and how to hold/diaper. Encourage bonding + development.`,
-    },
-    {
-      heading: "Named signs \u2014 Ortolani / Barlow",
-      body: `Ortolani / Barlow — Clunk on hip abduction / dislocation on adduction → developmental dysplasia of the hip
-
-Positive Ortolani/Barlow → Developmental dysplasia of hip`,
     }
   ],
   "scoliosis": [
     {
       heading: "Scoliosis",
       body: `Lateral curvature of the spine. Screen with the Adams forward-bend test (asymmetry of scapulae/ribs/flanks/hips, uneven shoulders/hips, ill-fitting clothes); confirm with X-ray (Cobb angle). Management by degree: observation → bracing (worn ~23 h/day; teach skin care + adherence, wear a cotton shirt under it) → surgical spinal fusion. Post-op: log-roll, pain control, neurovascular checks. Complications: respiratory compromise, self-esteem.`,
-    },
-    {
-      heading: "Named signs \u2014 Adams forward-bend",
-      body: `Adams forward-bend — Rib/flank asymmetry when bending forward → scoliosis`,
     }
   ],
   "other-bone": [
@@ -144,18 +128,8 @@ Sprains vs strains | Sprain = ligament injury; strain = muscle/tendon injury. Tr
     },
     {
       heading: "Management",
-      body: `• Maximize function + independence; PT/OT, ROM, bracing to prevent contractures; a moderate-calorie diet to avoid obesity (keeps the child ambulatory longer).
+      body: `• Maximize function + independence; PT/OT, ROM, bracing to prevent contractures; adequate protein with a moderate/low-calorie diet to prevent obesity (staying lean keeps the child ambulatory longer).
 • Respiratory care (cough-assist device), monitor cardiac status; genetic counseling. Complications: contractures, scoliosis, respiratory infection, cardiomyopathy.`,
-    },
-    {
-      heading: "Professor quick hit \u2014 diet",
-      body: `Muscular dystrophy diet: adequate protein but moderate/low calories to prevent obesity — staying lean keeps the child ambulatory longer.`,
-    },
-    {
-      heading: "Named signs \u2014 Gowers sign",
-      body: `Gowers sign — Child ‘walks’ hands up the legs to stand → Duchenne muscular dystrophy
-
-Gowers sign, ↑creatine kinase (boy) → Duchenne muscular dystrophy`,
     }
   ],
   "cp": [
@@ -170,9 +144,6 @@ Gowers sign, ↑creatine kinase (boy) → Duchenne muscular dystrophy`,
       body: `• Prevention: maternal folic acid before + during pregnancy. Types: occulta (hidden, hair tuft/dimple) vs cystica (meningocele/myelomeningocele — visible sac).
 • Pre-op myelomeningocele: cover the sac with a sterile, moist, non-adherent dressing, position prone, protect the sac, no diaper over it.
 • Latex allergy precautions (high risk). Neurogenic bladder → clean intermittent catheterization; monitor for ↑ICP/hydrocephalus. Assess head circumference + fontanels.`,
-    },
-    {
-      body: `Myelomeningocele → sterile moist dressing, prone, latex precautions.`,
     }
   ],
   "jia": [

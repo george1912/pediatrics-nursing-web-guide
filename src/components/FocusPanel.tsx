@@ -97,7 +97,7 @@ function StudyText({ body }: { body: string }) {
 function blockTone(block: ContentBlock): string {
   const heading = block.heading?.toLowerCase() ?? ''
   if (/emergency|don't miss|do not|wrong order|priority/.test(heading)) return ' is-alert'
-  if (/high-yield|professor|quick hit|classic link/.test(heading)) return ' is-high-yield'
+  if (/high-yield|key point|quick hit|classic link/.test(heading)) return ' is-high-yield'
   if (/management|treatment|teaching|nursing/.test(heading)) return ' is-action'
   return ''
 }
@@ -138,6 +138,10 @@ export function FocusPanel({ selected, onClose }: FocusPanelProps) {
           </p>
         </div>
       )}
+
+      <button type="button" className="focus-back-fab" onClick={onClose}>
+        ← Back to topics
+      </button>
     </section>
   )
 }

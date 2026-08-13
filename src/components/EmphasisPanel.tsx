@@ -21,7 +21,7 @@ export function EmphasisPanel({
   const anyOn = activeIds.size > 0
 
   return (
-    <section className="emphasis-panel" aria-label="Professor high-yield emphasis">
+    <section className="emphasis-panel" aria-label="Exam emphasis settings">
       <button
         type="button"
         className="emphasis-disclosure"
@@ -33,7 +33,7 @@ export function EmphasisPanel({
           <small>
             {anyOn
               ? `${activeIds.size} saved and active on this device`
-              : 'Choose professor high-yield highlights'}
+              : 'Choose high-yield exam highlights'}
           </small>
         </span>
         <span aria-hidden="true">{expanded ? '▼' : '▶'}</span>
@@ -45,8 +45,8 @@ export function EmphasisPanel({
             <div>
               <h2>Emphasis switches</h2>
               <p className="lede">
-                Professor-confirmed high-yield from the study guide. Your choices
-                stay saved on this device and highlight matching topics above.
+                High-yield exam areas from the study guide. Selections stay saved
+                on this device and highlight matching topics above.
               </p>
             </div>
             <div className="emphasis-actions">

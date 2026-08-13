@@ -2,11 +2,7 @@
 export { chapters } from './chapters'
 export { emphasisItems } from './emphasis'
 export { getTopicContent, contentByTopicId } from './content'
-export {
-  examMeta,
-  diseaseFramework,
-  clinicalJudgment,
-} from './types'
+export { examMeta } from './types'
 export type {
   Chapter,
   Topic,

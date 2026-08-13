@@ -39,34 +39,32 @@ Onset: Sudden | Gradual
 Skin: Cool, clammy, diaphoretic | Warm, dry, flushed
 Key signs: Shaky, tachycardia, confusion, hunger, headache, irritable | 3 P’s, fruity breath, Kussmaul breathing, N/V
 Cause: Too much insulin, skipped meal, exercise | Too little insulin, illness, overeating
-Treatment: Rapid carb (15 g), recheck in 15 min | IV fluids + insulin + K+ monitoring`,
+Treatment: 15:15 rule | IV fluids + insulin + K+ monitoring`,
     },
     {
-      body: `■ Exercise LOWERS glucose → a soccer game can precipitate hypoglycemia unless insulin/carbs are adjusted. When in doubt and you can’t tell hypo from hyper, treat as HYPOglycemia (give sugar) — hypoglycemia kills faster.`,
+      heading: "Key point",
+      body: `■ Exercise LOWERS glucose → a soccer game can precipitate hypoglycemia unless insulin/carbs are adjusted. When hypoglycemia cannot be distinguished from hyperglycemia, treat as HYPOglycemia (give sugar) — hypoglycemia kills faster.`,
     },
     {
-      heading: "15:15 rule (professor insulin rules)",
-      body: `Hypoglycemia = the 15:15 rule: give 15 g of fast carb (juice/glucose tabs), wait 15 min, recheck; repeat if still <70. When you can’t tell hypo vs hyper → treat as HYPO.`,
-    },
-    {
-      body: `Treat hypoglycemia with a rapid carb (juice/glucose tabs), recheck in 15 min (‘rule of 15’).`,
+      heading: "15:15 rule",
+      body: `Hypoglycemia = the 15:15 rule: give 15 g of fast carbohydrate (juice/glucose tablets), wait 15 min, recheck; repeat if still <70.`,
     }
   ],
   "bolus": [
     {
-      heading: "Exogenous insulin (professor insulin rules)",
+      heading: "Exogenous insulin",
       body: `‘Exogenous’ insulin = insulin given from OUTSIDE the body (injected/pump), vs endogenous (made by the pancreas). Type 1 diabetics require exogenous insulin for life.`,
     },
     {
-      heading: "Basal-bolus (professor insulin rules)",
+      heading: "Basal-bolus insulin",
       body: `Children do NOT use sliding-scale insulin (reactive dosing). They use basal-bolus: a long-acting basal + rapid-acting boluses with carb counting + a correction factor.`,
     },
     {
-      heading: "Meal insulin AFTER eating (professor insulin rules)",
-      body: `Kids get their meal (bolus) insulin AFTER eating — so you can count the carbs they ACTUALLY ate and dose accurately (young children may not finish a meal). Timing/dose depend on the child’s age + weight.`,
+      heading: "Meal insulin timing",
+      body: `Children get their meal (bolus) insulin AFTER eating so the carbohydrates they ACTUALLY ate can be counted and dosed accurately (young children may not finish a meal). Timing/dose depend on the child’s age + weight.`,
     },
     {
-      heading: "Basal Lantus / do not mix (professor insulin rules)",
+      heading: "Basal insulin safety",
       body: `Basal insulin (Lantus/glargine) = long-acting ‘background’ insulin, usually given at night, steady 24 h; do not mix it with other insulins. Bolus = rapid-acting (lispro/aspart, or regular) given for meals (meal bolus = carb coverage) + a correction bolus for a high reading.`,
     },
     {
@@ -79,37 +77,31 @@ Long-acting (basal) | Glargine (Lantus) | Once daily (often bedtime); steady bac
   "isf": [
     {
       heading: "Insulin Sensitivity (Correction) Factor (ISF)",
-      body: `Insulin Sensitivity (Correction) Factor (ISF): ISF = 1700 ÷ total daily insulin. It tells you how far 1 unit drops blood glucose.`,
+      body: `Insulin Sensitivity (Correction) Factor (ISF): ISF = 1700 ÷ total daily insulin. The result indicates how far 1 unit drops blood glucose.`,
     },
     {
       heading: "Correction dose",
-      body: `Correction dose = (current BG − target BG) ÷ ISF.
-
-Correction dose formula: (current BG − target BG) ÷ Insulin Sensitivity Factor (ISF) = units now. ISF = 1700 ÷ total daily insulin.`,
+      body: `Correction dose = (current BG − target BG) ÷ Insulin Sensitivity Factor (ISF) = units now.`,
     },
     {
       heading: "Carbohydrate coverage",
-      body: `Carbohydrate coverage = grams of carb in the meal ÷ the insulin-to-carb ratio (I:C).
-
-Carb coverage: grams of carb in the meal ÷ the insulin-to-carb ratio.`,
+      body: `Carbohydrate coverage = grams of carbohydrate in the meal ÷ the insulin-to-carb ratio (I:C).`,
     },
     {
       heading: "Total meal dose",
-      body: `Total meal dose = correction dose + carb coverage.
-
-Total meal dose = correction + carb coverage. (Worked examples are in the Endocrine chapter.)`,
+      body: `Total meal dose = correction dose + carbohydrate coverage.`,
     },
     {
-      heading: "Worked example 1 (from your slides)",
-      body: `Steven: BG 141, target 100, ISF 50, meal 60 g carb, I:C 1 unit per 20 g. Correction = (141−100)÷50 = 0.82. Carb coverage = 60÷20 = 3.0. Total ≈ 3.8 units.`,
+      heading: "Worked example 1",
+      body: `BG 141, target 100, ISF 50, meal 60 g carbohydrate, I:C 1 unit per 20 g. Correction = (141−100)÷50 = 0.82. Carbohydrate coverage = 60÷20 = 3.0. Total ≈ 3.8 units.`,
     },
     {
       heading: "Worked example 2",
-      body: `Monica: BG 250, target 120, ISF 50, meal 76 g carb, I:C 1 unit per 15 g. Correction = (250−120)÷50 = 2.6. Carb coverage = 76÷15 = 5.1. Total ≈ 7.7 units.`,
+      body: `BG 250, target 120, ISF 50, meal 76 g carbohydrate, I:C 1 unit per 15 g. Correction = (250−120)÷50 = 2.6. Carbohydrate coverage = 76÷15 = 5.1. Total ≈ 7.7 units.`,
     },
     {
       heading: "Worked example 3 (carb coverage only)",
-      body: `Rob: I:C = 1:10. Lunch = hotdog/bun 24 g + soup 7 g + apple 19 g + milk 25 g = 75 g total. Dose = 75÷10 = 7.5 units.`,
+      body: `I:C = 1:10. Lunch = hotdog/bun 24 g + soup 7 g + apple 19 g + milk 25 g = 75 g total. Dose = 75÷10 = 7.5 units.`,
     },
     {
       heading: "Calculating ISF example",
@@ -118,7 +110,7 @@ Total meal dose = correction + carb coverage. (Worked examples are in the Endocr
   ],
   "target-bg": [
     {
-      heading: "Target blood glucose by age (memorize)",
+      heading: "Target blood glucose by age",
       body: `Age group | Target blood glucose
 Young children <5 yr | 80–180 mg/dL
 Older children >5 yr | 80–150 mg/dL
@@ -171,11 +163,7 @@ Treatment: Levothyroxine (lifelong; give same time daily, empty stomach) | Antit
   "precocious": [
     {
       heading: "Precocious Puberty",
-      body: `Sexual development before age 8 (girls) / 9 (boys). Categories: premature thelarche (breast buds), premature adrenarche (pubic hair), central (gonadotropin-dependent) vs peripheral (from exogenous hormones). Workup: LH/FSH, GnRH, thyroid, bone-age X-ray, imaging. Treatment: GnRH analog (leuprolide/Lupron) to halt progression until appropriate age. Support the child’s + family’s emotional needs. [txt]`,
-    },
-    {
-      heading: "Professor quick hit",
-      body: `Precocious puberty (see Endocrine): sexual development <8 girls / <9 boys; treat with GnRH analog (leuprolide).`,
+      body: `Sexual development before age 8 (girls) / 9 (boys). Categories: premature thelarche (breast buds), premature adrenarche (pubic hair), central (gonadotropin-dependent) vs peripheral (from exogenous hormones). Workup: LH/FSH, GnRH, thyroid, bone-age X-ray, imaging. Treatment: GnRH analog (leuprolide/Lupron) to halt progression until appropriate age. Support the child’s + family’s emotional needs.`,
     }
   ],
   "metab-genetic": [
