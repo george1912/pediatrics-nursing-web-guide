@@ -139,9 +139,6 @@ export function FocusPanel({ selected, onClose }: FocusPanelProps) {
         </div>
       )}
 
-      <button type="button" className="focus-back-fab" onClick={onClose}>
-        ← Back to topics
-      </button>
     </section>
   )
 }

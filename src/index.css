@@ -455,26 +455,6 @@ p {
   margin-bottom: 0.35rem;
 }
 
-.focus-back-fab {
-  position: fixed;
-  right: clamp(1rem, 3vw, 2rem);
-  bottom: clamp(1rem, 3vw, 2rem);
-  z-index: 20;
-  padding: 0.7rem 0.9rem;
-  color: #fff;
-  background: var(--titlebar);
-  border: 2px solid var(--ink);
-  box-shadow:
-    var(--bevel-out),
-    4px 4px 0 var(--shadow);
-  font-family: var(--font-pixel);
-}
-
-.focus-back-fab:hover {
-  color: var(--ink);
-  background: var(--highlight);
-}
-
 .focus-subhead {
   font-size: 1.1rem;
   margin-bottom: 0.45rem;
